@@ -93,7 +93,7 @@ class Input(smi.Script):
                     logger.info("Successfully obtained token from Sophos")
                 except Exception as e:
                     logger.error("Failed to obtain access token")
-                    log.log_exception(logger, e, msg_before=f"Authentication failed for input {normalized_input_name}")
+                    log.log_exception(logger, e, msg_before=f"Authentication failed for input {normalized_input_name}", exc_label=ADDON_NAME)
                     continue
 
                 try:
@@ -101,7 +101,7 @@ class Input(smi.Script):
                     logger.info("Successfully obtained tenats from Sophos")
                 except Exception as e:
                     logger.error("Failed to obtain tenants from Sophos")
-                    log.log_exception(logger, e, msg_before=f"Failed getTenants for input {normalized_input_name}")
+                    log.log_exception(logger, e, msg_before=f"Failed getTenants for input {normalized_input_name}", exc_label=ADDON_NAME)
                     continue
 
                 try:
@@ -120,7 +120,7 @@ class Input(smi.Script):
                     logger.info(f"Successfully ingested {len(tenants)} Sophos tenants into Splunk")
                 except Exception as e:
                     logger.error("Failed to obtain endpoints from Sophos")
-                    log.log_exception(logger, e, msg_before=f"Failed getTenants for input {normalized_input_name}")
+                    log.log_exception(logger, e, msg_before=f"Failed getTenants for input {normalized_input_name}", exc_label=ADDON_NAME)
                     continue
                 log.modular_input_end(logger, normalized_input_name)
             except Exception as e:
@@ -129,7 +129,8 @@ class Input(smi.Script):
                     logger,
                     e,
                     "Error during Sophos ingestion",
-                    msg_before=f"Exception raised while ingesting data for input {normalized_input_name}"
+                    msg_before=f"Exception raised while ingesting data for input {normalized_input_name}",
+                    exc_label=ADDON_NAME
                 )
 
 if __name__ == "__main__":
