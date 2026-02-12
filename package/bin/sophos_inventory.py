@@ -121,7 +121,7 @@ class Input(smi.Script):
                 except Exception as e:
                     logger.error("Failed to obtain endpoints from Sophos")
                     log.log_exception(logger, e, msg_before=f"Failed getTenants for input {normalized_input_name}", exc_label=ADDON_NAME)
-                    continue
+                
                 log.modular_input_end(logger, normalized_input_name)
             except Exception as e:
                 logger.error("Unexpected error during execution")
