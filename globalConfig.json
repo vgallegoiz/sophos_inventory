@@ -194,7 +194,7 @@
     "meta": {
         "name": "sophos_inventory",
         "restRoot": "sophos_inventory",
-        "version": "0.0.0",
+        "version": "0.0.2",
         "displayName": "Sophos add-on for Endpoint Inventory",
         "schemaVersion": "0.0.9",
         "supportedThemes": [

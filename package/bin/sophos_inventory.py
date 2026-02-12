@@ -23,8 +23,8 @@ def get_account_api_key(session_key: str, account_name: str):
         realm=f"__REST_CREDENTIAL__#{ADDON_NAME}#configs/conf-sophos_inventory_account",
     )
     account_conf_file = cfm.get_conf("sophos_inventory_account")
-    client_id = account_conf_file.get(account_name).get("api_key")
-    client_secret = account_conf_file.get(account_name).get("api_key")
+    client_id = account_conf_file.get(account_name).get("client_id")
+    client_secret = account_conf_file.get(account_name).get("client_secret")
     return client_id, client_secret
 
 
