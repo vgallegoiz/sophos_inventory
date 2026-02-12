@@ -14,7 +14,7 @@ class SophosInventory:
             'Content-Type': 'application/x-www-form-urlencoded'
         }
         try:
-            response = requests.post(url=url, headers=headers, data=payload, verify=False)
+            response = requests.post(url=url, headers=headers, data=payload)
         except Exception as e:
             print(e)
             return
@@ -32,7 +32,7 @@ class SophosInventory:
             'Authorization': f"Bearer {self.access_token}"
         }
         try:
-            response = requests.get(url=url, headers=headers, verify=False)
+            response = requests.get(url=url, headers=headers)
         except Exception as e:
             print(e)
             return
@@ -55,7 +55,7 @@ class SophosInventory:
             'Authorization': f"Bearer {self.access_token}"
         }
         try: 
-            response = requests.get(url=url, headers=headers, verify=False)
+            response = requests.get(url=url, headers=headers)
         except Exception as e: 
             print(e)
             return
